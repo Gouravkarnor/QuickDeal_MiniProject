@@ -36,6 +36,9 @@ const login = async (req, res) => {
                     Date.now() +
                         process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
                 ),
+                httpOnly: false,
+                sameSite: "None", // Explicitly set SameSite attribute to None
+                secure: true, // Ensure the cookie is only sent over HTTPS
             };
             res.cookie("userRegistered", token, cookieOptions);
             return res.json({
