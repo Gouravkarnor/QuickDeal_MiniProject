@@ -13,7 +13,7 @@ const AuctionDashboard = () => {
     const [pastAuctions, setpastauction] = useState([]);
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auction/getLiveAuctions")
+            .get("https://quickdealdemo-1.onrender.com/auction/getLiveAuctions")
             .then((res) => {
                 if (res.data.status == "success") {
                     setliveauction(res.data.liveAuctions);
@@ -30,7 +30,7 @@ const AuctionDashboard = () => {
     }, []);
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auction/getPastAuctions")
+            .get("https://quickdealdemo-1.onrender.com/auction/getPastAuctions")
             .then((res) => {
                 if (res.data.status == "success") {
                     setpastauction(res.data.liveAuctions);

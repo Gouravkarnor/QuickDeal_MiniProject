@@ -96,7 +96,7 @@ const NewAuction = () => {
         };
         setloading(true);
         axios
-            .post("http://localhost:8000/auction/startauction", data)
+            .post("https://quickdealdemo-1.onrender.com/auction/startauction", data)
             .then((res) => {
                 setloading(false);
                 if (res.data.status == "success") {
@@ -148,7 +148,7 @@ const NewAuction = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/dashboard/myads/${userid}`)
+            .get(`https://quickdealdemo-1.onrender.com/dashboard/myads/${userid}`)
             .then((res) => {
                 setads(res.data.result);
             })
