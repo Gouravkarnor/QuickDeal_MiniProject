@@ -36,7 +36,6 @@ const login = async (req, res) => {
                     Date.now() +
                         process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
                 ),
-                httpOnly: true,
             };
             res.cookie("userRegistered", token, cookieOptions);
             return res.json({
