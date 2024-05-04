@@ -29,10 +29,13 @@ const login = async (req, res) => {
         if (flag) {
             //password match
             const token = jwt.sign(payload, process.env.JWT_SECRET, {
-                expiresIn: "90d",
+                expiresIn: process.env.JWT_EXPIRES,
             });
             const cookieOptions = {
-                expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+                expires: new Date(
+                    Date.now() +
+                        process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+                ),
             };
             res.cookie("userRegistered", token, cookieOptions);
             return res.json({
