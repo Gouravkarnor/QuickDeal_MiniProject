@@ -7,7 +7,7 @@ const deleteuser = require("../Controllers/HandleUsers/deleteuser");
 const createuser = require("../Controllers/HandleUsers/createuser");
 const updatedata = require("../Controllers/HandleUsers/updateuser");
 
-// router.get("/users", getdata);
+router.get("/users", getdata);
 // router.get("/userdata", getdata);
 // router.get("/userdata/:email", getUserById);
 // router.delete("/users/:id", deleteuser);
