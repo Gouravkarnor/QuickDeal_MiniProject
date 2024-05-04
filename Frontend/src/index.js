@@ -11,10 +11,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <BrowserRouter>
-        <React.StrictMode>
-            <ConfirmProvider>
-                <App></App>
-            </ConfirmProvider>
-        </React.StrictMode>
+        <ConfirmProvider>
+            <App></App>
+        </ConfirmProvider>
     </BrowserRouter>
 );
