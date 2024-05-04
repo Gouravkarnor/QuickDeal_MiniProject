@@ -36,7 +36,7 @@ function Navbar({
         };
     }, []);
 
-    axios.defaults.withCredentials = true;
+    // axios.defaults.withCredentials = true;
     const navigate = useNavigate();
     const [isauth, setauth] = useState("");
     const [name, setname] = useState("");

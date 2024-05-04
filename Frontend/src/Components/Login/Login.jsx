@@ -17,7 +17,8 @@ function LoginSignup() {
     const [name, setname] = useState("");
     const [useremail, setuseremail] = useState("");
     const [image, setimage] = useState("");
-
+    
+    axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
             .get("https://quickdealdemo-1.onrender.com/auth/islogin")
@@ -59,7 +60,6 @@ function LoginSignup() {
         });
     };
 
-    axios.defaults.withCredentials = true;
     const submithandel = (event) => {
         event.preventDefault();
         axios
