@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 app.use(
     cors({
-        origin: ["http://localhost:3000"],
+        origin: ["https://quick-deal-demo.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true,
     })
@@ -20,7 +20,7 @@ app.use(
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://quick-deal-demo.vercel.app/",
         methods: ["POST", "GET"],
     },
 });
