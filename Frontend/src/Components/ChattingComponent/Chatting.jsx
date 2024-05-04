@@ -15,7 +15,7 @@ const messageListReferance = React.createRef();
 let socket;
 const Chatting = () => {
     useEffect(() => {
-        socket = io.connect("http://localhost:8000/chat");
+        socket = io.connect("https://quickdealdemo-1.onrender.com/chat");
         return () => {
             socket.disconnect();
         };
@@ -34,7 +34,7 @@ const Chatting = () => {
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     // setauth(false);
@@ -74,7 +74,9 @@ const Chatting = () => {
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/profile/getuserinfo/${buyer}`)
+            .get(
+                `https://quickdealdemo-1.onrender.com/profile/getuserinfo/${buyer}`
+            )
             .then((res) => {
                 setbuyerinfo(res.data.data);
                 // console.log(res.data);
@@ -83,7 +85,9 @@ const Chatting = () => {
                 console.log(err);
             });
         axios
-            .get(`http://localhost:8000/profile/getuserinfo/${seller}`)
+            .get(
+                `https://quickdealdemo-1.onrender.com/profile/getuserinfo/${seller}`
+            )
             .then((res) => {
                 setsellerinfo(res.data.data);
             })
@@ -116,11 +120,14 @@ const Chatting = () => {
                 },
             ]);
             axios
-                .post("http://localhost:8000/chatting/storemessages", {
-                    sender: buyer,
-                    reciever: data.receiverId,
-                    message: data.message,
-                })
+                .post(
+                    "https://quickdealdemo-1.onrender.com/chatting/storemessages",
+                    {
+                        sender: buyer,
+                        reciever: data.receiverId,
+                        message: data.message,
+                    }
+                )
                 .then((res) => {
                     // console.log("message saved successfully ! ");
                 })
@@ -155,7 +162,9 @@ const Chatting = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/chatting/getactivechat/${buyer}`)
+            .get(
+                `https://quickdealdemo-1.onrender.com/chatting/getactivechat/${buyer}`
+            )
             .then((res) => {
                 setActivechats(res.data.data.members);
             })
@@ -170,7 +179,7 @@ const Chatting = () => {
         var getmessages = () => {
             axios
                 .get(
-                    `http://localhost:8000/chatting/getmessages/${buyer}/${seller}`
+                    `https://quickdealdemo-1.onrender.com/chatting/getmessages/${buyer}/${seller}`
                 )
                 .then((res) => {
                     setMessages(res.data.data);

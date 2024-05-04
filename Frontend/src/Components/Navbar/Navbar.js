@@ -30,7 +30,7 @@ function Navbar({
     message2,
 }) {
     useEffect(() => {
-        socket = io.connect("http://localhost:8000/navbar");
+        socket = io.connect("https://quickdealdemo-1.onrender.com/navbar");
         return () => {
             socket.disconnect();
         };
@@ -69,7 +69,7 @@ function Navbar({
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -107,7 +107,7 @@ function Navbar({
     const [arrowicon, setarrowicon] = useState(false);
     const handlelogout = () => {
         axios
-            .get("http://localhost:8000/auth/logout")
+            .get("https://quickdealdemo-1.onrender.com/auth/logout")
             .then((res) => {
                 if (res.data.status === "success") {
                     navigate("/", { replace: true });
