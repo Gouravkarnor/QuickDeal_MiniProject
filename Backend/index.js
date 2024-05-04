@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 app.use(
     cors({
-        origin: ["https://quick-deal-demo.vercel.app/"],
+        origin: ["https://quick-deal-demo.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true,
     })
