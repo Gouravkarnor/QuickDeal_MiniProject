@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Inter:wght@800;900&family=Rubik:wght@800&display=swap");
+.HeaderContainer {
+    position: fixed;
+    width: 100%;
+    top: 0; /* Add this line to fix the header to the top of the viewport */
+    left: 0; /* Add this line to fix the header to the left of the viewport */
+    z-index: 1000; /* Add this line to ensure the header stays on top of other content */
+}
+.Header {
+    background-color: var(--purple);
+    color: var(--lp);
+    padding: 1.2rem;
+    text-align: left;
+    font-size: 11px;
+    font-family: "DM Sans", sans-serif;
+    /* Add flexbox for layout */
+    display: flex;
+    justify-content: space-between; /* Adjust spacing between items */
+    align-items: center; /* Align items vertically */
+    width: 100%; /* Ensure header covers full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    /* Add this line */
+}
+
+/* Style for dummy link */
+.Header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    /* margin-right: 1rem; */
+}
+
+/* search bar styling */
+
+.InputContainer {
+    width: 350px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        to bottom,
+        rgb(227, 213, 255),
+        rgb(255, 231, 231)
+    );
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+    margin-left: 100px;
+}
+
+.input {
+    width: 280px;
+    height: 40px;
+    border: none;
+    outline: none;
+    caret-color: rgb(255, 81, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding-left: 15px;
+    letter-spacing: 0.8px;
+    color: rgb(19, 19, 19);
+    font-size: 13.4px;
+}
+
+.logo img {
+    width: 100px;
+    height: 60px;
+    padding: "2px";
+}
+
+/* notification icon */
+.notify_icon {
+    font-size: 50px;
+}
+
+/* Responsive Styling */
+
+/* login/sell button styling */
+
+.login-sell-btn {
+    align-items: center;
+    /* background-color: #ccace8; */
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 800px;
+    box-sizing: border-box;
+    color: #110000;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 18px;
+    font-weight: 650;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 500px;
+    min-height: 45px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    /* touch-action: manipulation; */
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    text-decoration: none;
+    border: 2px solid #4a4360;
+}
+
+.login-sell-btn:hover,
+.login-sell-btn:focus {
+    background-color: #4a4360;
+    color: #ffffff;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.profile_dragdown {
+    display: flex;
+}
+
+.custom-nav-dropdown .dropdown-toggle::after {
+    display: none;
+}
+.profilecard {
+    margin: 1px;
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+}
+
+.userInfo span {
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+.userInfo {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.viewandupdatebutton {
+    color: "black";
+    min-width: 250px;
+    margin: 10px;
+    padding: 6px;
+    color: white;
+    background-color: #4a4360;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    border: 3px solid #4a4360;
+}
+
+.viewandupdatebutton:hover {
+    border: 3px solid #202938;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.droptext {
+    font-size: large;
+    color: black;
+}
+.dropdownitems:hover {
+    background-color: #00a49e1d;
+}
+.dropdownitems {
+    width: auto;
+    height: 2.4em;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* clear filter button */
+.clear-filter {
+    position: relative;
+    width: 95px;
+    min-width: 90px;
+    height: 35px;
+    border-radius: 45px;
+    border: none;
+    background-color: rgb(151, 95, 255);
+    color: white;
+    box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+        0px 5px 10px rgba(5, 5, 5, 0.212),
+        0px -10px 10px rgb(124, 54, 255) inset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+}
+.notificationDropdown {
+    padding: 0;
+}
+.chat-list {
+    width: 300px;
+}
+.rce-citem-body--top-time {
+    display: block;
+}
+.clear-filter::before {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    filter: blur(1px);
+    top: 7px;
+    border-radius: 50%;
+}
+
+.clear-filter::after {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    filter: blur(1px);
+    bottom: 7px;
+    border-radius: 50%;
+}
+
+.clear-filter:hover {
+    animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Responsive Styling */
+@media only screen and (max-width: 768px) {
+    .Header {
+        flex-direction: row; /* Stack items vertically on smaller screens */
+        align-items: center; /* Stretch items to full width */
+        margin: 0;
+        padding: 8px;
+    }
+
+    .InputContainer {
+        width: 40%; /* Full width for search bar */
+        max-width: none; /* Remove max-width constraint */
+        margin-bottom: 0; /* Add space below search bar */
+        height: 35px;
+        margin-right: 4px;
+    }
+
+    .profile_dragdown {
+        flex-direction: row; /* Stack dropdown and button vertically */
+        align-items: center; /* Align items horizontally */
+    }
+
+    .login-sell-btn {
+        width: 70px; /* Allow button to adjust width based on content */
+        font-size: 10px;
+    }
+
+    .logo img {
+        width: 70px; /* Adjust logo size for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 0;
+    }
+    .custom-nav-dropdown img {
+        width: 40px; /* Adjust logo size for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .input {
+        width: 100%; /* Full width for input field */
+    }
+}
