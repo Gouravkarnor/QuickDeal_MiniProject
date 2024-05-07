@@ -17,11 +17,10 @@ function LoginSignup() {
     const [name, setname] = useState("");
     const [useremail, setuseremail] = useState("");
     const [image, setimage] = useState("");
-    
-    axios.defaults.withCredentials = true;
+
     useEffect(() => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -60,10 +59,11 @@ function LoginSignup() {
         });
     };
 
+    axios.defaults.withCredentials = true;
     const submithandel = (event) => {
         event.preventDefault();
         axios
-            .post("https://quickdealdemo-1.onrender.com/auth/login", user)
+            .post("http://localhost:8000/auth/login", user)
             .then((res) => {
                 if (res.data.status === "success") {
                     toast.success(res.data.message, {

@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Placeholder from "react-bootstrap/Placeholder";
 import { useNavigate } from "react-router-dom";
 import "./Home";
+import Footer from "../Footer/Footer";
 const Home = () => {
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
@@ -19,7 +20,7 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -43,7 +44,7 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get(`https://quickdealdemo-1.onrender.com/dashboard/getposts`)
+            .get(`http://localhost:8000/dashboard/getposts`)
             .then((res) => {
                 setitems(res.data.result);
             })
@@ -171,6 +172,9 @@ const Home = () => {
                             </Card>
                         ))}
                 </div>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </>
     );

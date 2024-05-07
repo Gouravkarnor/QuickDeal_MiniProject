@@ -21,7 +21,7 @@ const ChattingLandingPage = () => {
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     navigate("/login");
@@ -57,7 +57,7 @@ const ChattingLandingPage = () => {
 
     useEffect(() => {
         axios
-            .get(`https://quickdealdemo-1.onrender.com/chatting/getactivechat/${buyer}`)
+            .get(`http://localhost:8000/chatting/getactivechat/${buyer}`)
             .then((res) => {
                 setActivechats(res.data.data.members);
             })

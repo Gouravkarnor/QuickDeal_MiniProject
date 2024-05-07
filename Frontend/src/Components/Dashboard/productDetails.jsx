@@ -32,7 +32,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -49,7 +49,7 @@ const ProductDetails = () => {
     const handlelike = () => {
         axios
             .post(
-                `https://quickdealdemo-1.onrender.com/dashboard/updatePostLikes/${id}/${userid}`
+                `http://localhost:8000/dashboard/updatePostLikes/${id}/${userid}`
             )
             .then((res) => {
                 if (res.data.status === "success") {
@@ -63,7 +63,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         axios
-            .get(`https://quickdealdemo-1.onrender.com/dashboard/post/${id}`)
+            .get(`http://localhost:8000/dashboard/post/${id}`)
             .then((res) => {
                 setitem(res.data.info);
             })
@@ -75,7 +75,7 @@ const ProductDetails = () => {
     const formattedDate = formatDate(item.date);
     const handleGetBuyerinfo = () => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 const buyer_id = res.data.id;
                 Navigate(`/chat/${buyer_id}/${item.userid}`);

@@ -22,7 +22,7 @@ const CategoryBar = ({ onSelectedCategories2e, onClearFilter2 }) => {
         onClearFilter2();
     };
     return (
-        <nav className={style.navbar}>
+        <nav className={`${style.navbar} ${style.hide2}`}>
             <div className={style.navbarcontent}>
                 <div>
                     <NavDropdown
@@ -79,10 +79,13 @@ const CategoryBar = ({ onSelectedCategories2e, onClearFilter2 }) => {
                         })}
                     </ul>
                 </div>
-
-                <button className="clear-filter" onClick={handleClearFilter}>
-                    Clear Filter
-                </button>
+                <div className={style.clear_div}>
+                    <button
+                        className="clear_filter"
+                        onClick={handleClearFilter}>
+                        Clear Filter
+                    </button>
+                </div>
             </div>
         </nav>
     );

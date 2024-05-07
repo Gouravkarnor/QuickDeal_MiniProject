@@ -25,7 +25,7 @@ const Signupui = () => {
 
     useEffect(() => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -75,12 +75,12 @@ const Signupui = () => {
     const submithandel = (event) => {
         event.preventDefault();
         axios
-            .post("https://quickdealdemo-1.onrender.com/auth/validateuser", user)
+            .post("http://localhost:8000/auth/validateuser", user)
             .then((res) => {
                 if (res.data.status === "success") {
                     setloading(true);
                     axios
-                        .post("https://quickdealdemo-1.onrender.com/auth/sendotp", user)
+                        .post("http://localhost:8000/auth/sendotp", user)
                         .then((res) => {
                             setloading(false);
                             if (res.data.status === "success") {
@@ -120,7 +120,7 @@ const Signupui = () => {
         event.preventDefault();
         console.log(user);
         axios
-            .post("https://quickdealdemo-1.onrender.com/auth/register", user)
+            .post("http://localhost:8000/auth/register", user)
             .then((res) => {
                 console.log(res.data);
                 if (res.data.status === "success") {

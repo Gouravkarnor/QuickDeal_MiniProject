@@ -26,7 +26,7 @@ const Mainauction = () => {
     useEffect(() => {
         axios
             .get(
-                `https://quickdealdemo-1.onrender.com/auction/getCurrentAuctionbyid/${auctionid}`
+                `http://localhost:8000/auction/getCurrentAuctionbyid/${auctionid}`
             )
             .then((res) => {
                 if (res.data.status === "success") {
@@ -46,7 +46,7 @@ const Mainauction = () => {
     const [activeuserid, setuserid] = useState("");
     useEffect(() => {
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("http://localhost:8000/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     // navigate("/login");
@@ -85,7 +85,7 @@ const Mainauction = () => {
     // ---------------- socket for auction --------------------
 
     useEffect(() => {
-        socket = io.connect("https://quickdealdemo-1.onrender.com/auction");
+        socket = io.connect("http://localhost:8000/auction");
         return () => {
             socket.disconnect();
         };
@@ -138,7 +138,7 @@ const Mainauction = () => {
             });
             axios
                 .post(
-                    `https://quickdealdemo-1.onrender.com/auction/setBitAmount/${auctionid}`,
+                    `http://localhost:8000/auction/setBitAmount/${auctionid}`,
                     message
                 )
                 .then((res) => {
@@ -162,7 +162,7 @@ const Mainauction = () => {
     const [pastBids, setpastbids] = useState([]);
     useEffect(() => {
         axios
-            .get(`https://quickdealdemo-1.onrender.com/auction/getBitAmounts/${auctionid}`)
+            .get(`http://localhost:8000/auction/getBitAmounts/${auctionid}`)
             .then((res) => {
                 if (res.data.status === "success") {
                     setpastbids(res.data.liveAuctions);
@@ -191,7 +191,7 @@ const Mainauction = () => {
 
     const handleEndAuction = (auctionid) => {
         axios
-            .post("https://quickdealdemo-1.onrender.com/auction/endAuction", { auctionid })
+            .post("http://localhost:8000/auction/endAuction", { auctionid })
             .then((res) => {
                 if (res.data.status === "success") {
                     setstatechanged(!statechanged);
@@ -206,7 +206,7 @@ const Mainauction = () => {
     // useEffect(() => {
     //     axios
     //         .get(
-    //             `https://quickdealdemo-1.onrender.com/auction/getMemberInAuction/${auctionid}`
+    //             `http://localhost:8000/auction/getMemberInAuction/${auctionid}`
     //         )
     //         .then((res) => {
     //             setmembersInAuction(res.data.info);

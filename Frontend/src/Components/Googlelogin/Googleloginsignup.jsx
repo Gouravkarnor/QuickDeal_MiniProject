@@ -29,10 +29,10 @@ const Googleloginhelp = () => {
             const data = { isgoogle: true, email, fullname: name, picture };
 
             axios
-                .post("https://quickdealdemo-1.onrender.com/auth/register", data)
+                .post("http://localhost:8000/auth/register", data)
                 .then((res) => {
                     axios
-                        .post("https://quickdealdemo-1.onrender.com/auth/login", data)
+                        .post("http://localhost:8000/auth/login", data)
                         .then((res) => {
                             if (res.data.status === "success") {
                                 toast.success(res.data.message, {
