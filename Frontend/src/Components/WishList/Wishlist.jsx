@@ -17,7 +17,7 @@ const Wishlist = () => {
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     // setauth(false);
@@ -33,7 +33,7 @@ const Wishlist = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/dashboard/getLikedPosts/${userid}`)
+            .get(`https://quickdealdemo-1.onrender.com/dashboard/getLikedPosts/${userid}`)
             .then((res) => {
                 setlikedPosts(res.data.post);
             })
@@ -47,7 +47,7 @@ const Wishlist = () => {
     const handleWishDelete = (id) => {
         axios
             .post(
-                `http://localhost:8000/dashboard/updatePostLikes/${id}/${userid}`
+                `https://quickdealdemo-1.onrender.com/dashboard/updatePostLikes/${id}/${userid}`
             )
             .then((res) => {
                 if (res.data.status === "success") {

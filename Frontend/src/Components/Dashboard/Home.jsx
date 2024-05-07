@@ -20,7 +20,7 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -44,7 +44,7 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/dashboard/getposts`)
+            .get(`https://quickdealdemo-1.onrender.com/dashboard/getposts`)
             .then((res) => {
                 setitems(res.data.result);
             })

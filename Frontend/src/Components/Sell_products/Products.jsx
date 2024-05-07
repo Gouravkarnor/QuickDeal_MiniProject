@@ -35,7 +35,7 @@ const Products = () => {
     };
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setuserid(false);
@@ -136,7 +136,7 @@ const Products = () => {
         setloading(true);
         axios
             .post(
-                "http://localhost:8000/dashboard/uploadimage",
+                "https://quickdealdemo-1.onrender.com/dashboard/uploadimage",
                 dataWithImages,
                 config
             )

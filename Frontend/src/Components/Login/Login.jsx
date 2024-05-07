@@ -20,7 +20,7 @@ function LoginSignup() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -63,7 +63,7 @@ function LoginSignup() {
     const submithandel = (event) => {
         event.preventDefault();
         axios
-            .post("http://localhost:8000/auth/login", user)
+            .post("https://quickdealdemo-1.onrender.com/auth/login", user)
             .then((res) => {
                 if (res.data.status === "success") {
                     toast.success(res.data.message, {

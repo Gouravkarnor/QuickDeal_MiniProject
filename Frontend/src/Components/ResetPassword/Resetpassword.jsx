@@ -55,7 +55,7 @@ const Resetpassword = () => {
         setisloading(true);
 
         axios
-            .post("http://localhost:8000/auth/resetpassword/sendotp", { email })
+            .post("https://quickdealdemo-1.onrender.com/auth/resetpassword/sendotp", { email })
             .then((res) => {
                 setisloading(false);
                 if (res.data.status === "error") {
@@ -90,7 +90,7 @@ const Resetpassword = () => {
 
         const data = { otp, email };
         axios
-            .post("http://localhost:8000/auth/resetpassword/verifyotp", data)
+            .post("https://quickdealdemo-1.onrender.com/auth/resetpassword/verifyotp", data)
             .then((res) => {
                 setisloading(false);
                 if (res.data.status === "error") {
@@ -126,7 +126,7 @@ const Resetpassword = () => {
         const data = { newpassword, email };
         axios
             .post(
-                "http://localhost:8000/auth/resetpassword/updatepassword",
+                "https://quickdealdemo-1.onrender.com/auth/resetpassword/updatepassword",
                 data
             )
             .then((res) => {

@@ -17,7 +17,7 @@ const Myads = () => {
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     // setauth(false);
@@ -52,7 +52,7 @@ const Myads = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/dashboard/myads/${userid}`)
+            .get(`https://quickdealdemo-1.onrender.com/dashboard/myads/${userid}`)
             .then((res) => {
                 setads(res.data.result);
             })
@@ -78,7 +78,7 @@ const Myads = () => {
         });
         axios
             .post(
-                `http://localhost:8000/dashboard/updatePost/${item._id}`,
+                `https://quickdealdemo-1.onrender.com/dashboard/updatePost/${item._id}`,
                 data
             )
             .then((res) => {
@@ -106,7 +106,7 @@ const Myads = () => {
                 /* ... */
                 axios
                     .post(
-                        `http://localhost:8000/dashboard/markAsSold/${postid}`
+                        `https://quickdealdemo-1.onrender.com/dashboard/markAsSold/${postid}`
                     )
                     .then((res) => {
                         if (res.data.status === "success") {
@@ -138,7 +138,7 @@ const Myads = () => {
                 /* ... */
                 axios
                     .post(
-                        `http://localhost:8000/dashboard/markAsSold/${postid}`
+                        `https://quickdealdemo-1.onrender.com/dashboard/markAsSold/${postid}`
                     )
                     .then((res) => {
                         if (res.data.status === "success") {
@@ -171,7 +171,7 @@ const Myads = () => {
                 /* ... */
                 axios
                     .post(
-                        `http://localhost:8000/dashboard/DeletePost/${postid}`
+                        `https://quickdealdemo-1.onrender.com/dashboard/DeletePost/${postid}`
                     )
                     .then((res) => {
                         if (res.data.status === "success") {

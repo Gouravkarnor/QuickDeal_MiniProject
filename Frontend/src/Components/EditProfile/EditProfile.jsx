@@ -12,7 +12,7 @@ const EditProfile = () => {
     const navigate = useNavigate();
     useEffect(() => {
         axios
-            .get("http://localhost:8000/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     // setauth(false);
@@ -27,7 +27,7 @@ const EditProfile = () => {
     }, []);
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/profile/getuserinfo/${userid}`)
+            .get(`https://quickdealdemo-1.onrender.com/profile/getuserinfo/${userid}`)
             .then((res) => {
                 if (res.data.status === "error") {
                     // setauth(false);
