@@ -58,11 +58,13 @@ const Home = () => {
         setloading(false);
     }, []);
     useEffect(() => {
+        setloading(true);
         setrenderitems(
             items?.filter(
                 (item) => item.useremail !== useremail && !item.hasSold
             )
         );
+        setloading(false);
     }, [items]);
     const authdetail = { isauth, name, useremail, image, userid };
     // ------------------- handle search bar keyword change---------------
