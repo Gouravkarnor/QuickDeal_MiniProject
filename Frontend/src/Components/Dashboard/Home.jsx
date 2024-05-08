@@ -36,8 +36,10 @@ const Home = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setloading(false);
             });
-        setloading(false);
     }, []);
 
     // ---------------------- geting posts from DB -------------------
@@ -54,8 +56,10 @@ const Home = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setloading(false);
             });
-        setloading(false);
     }, []);
     useEffect(() => {
         setloading(true);
