@@ -63,11 +63,10 @@ const Home = () => {
     }, []);
     useEffect(() => {
         setloading(true);
-        setrenderitems(
-            items?.filter(
-                (item) => item.useremail !== useremail && !item.hasSold
-            )
+        const filteredItems = items?.filter(
+            (item) => item.useremail !== useremail && !item.hasSold
         );
+        setrenderitems(filteredItems);
         setloading(false);
     }, [items]);
     const authdetail = { isauth, name, useremail, image, userid };
