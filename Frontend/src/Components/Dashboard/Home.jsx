@@ -16,7 +16,7 @@ const Home = () => {
     const [useremail, setuseremail] = useState("");
     const [image, setimage] = useState("");
     const [userid, setuserid] = useState("");
-    const [loading, setloading] = useState(false);
+    const [loading, setloading] = useState(true);
     // -------------- checking if user login or not --------------------
 
     useEffect(() => {
