@@ -17,13 +17,12 @@ const Home = () => {
     const [image, setimage] = useState("");
     const [userid, setuserid] = useState("");
     const [loading, setloading] = useState(true);
-    const [render, setrender] = useState(false);
     // -------------- checking if user login or not --------------------
 
     useEffect(() => {
         setloading(true);
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("https://quick-deal-demo.vercel.app/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -37,26 +36,26 @@ const Home = () => {
             })
             .catch((err) => {
                 console.log(err);
-            })
-            .finally(() => {});
+            });
+        // setloading(false);
     }, []);
 
     // ---------------------- geting posts from DB -------------------
 
     const [items, setitems] = useState([]);
     const [renderitems, setrenderitems] = useState([]);
+    const [render, setrender] = useState(false);
 
     useEffect(() => {
         setloading(true);
         axios
-            .get(`https://quickdealdemo-1.onrender.com/dashboard/getposts`)
+            .get(`https://quick-deal-demo.vercel.app/dashboard/getposts`)
             .then((res) => {
                 setitems(res.data.result);
             })
             .catch((err) => {
                 console.log(err);
-            })
-            .finally(() => {});
+            });
     }, []);
     useEffect(() => {
         const filteredItems = items?.filter(
@@ -137,7 +136,7 @@ const Home = () => {
 
     return (
         <>
-            {loading && !render ? (
+            {loading || !render ? (
                 <div
                     style={{
                         position: "fixed",

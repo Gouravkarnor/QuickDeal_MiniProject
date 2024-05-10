@@ -24,7 +24,7 @@ const ProductDetails = () => {
     const { id } = useParams();
     const { preview } = useParams();
     const [liked, setliked] = useState(false);
-    const [loading, setloading] = useState(true);
+    const [loading, setloading] = useState(false);
     const [item, setitem] = useState([]);
     const Navigate = useNavigate();
     axios.defaults.withCredentials = true;
@@ -34,7 +34,7 @@ const ProductDetails = () => {
     useEffect(() => {
         setloading(true);
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("https://quick-deal-demo.vercel.app/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -47,13 +47,12 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log(err);
             });
-        setloading(false);
     }, []);
     const handlelike = () => {
         setloading(true);
         axios
             .post(
-                `https://quickdealdemo-1.onrender.com/dashboard/updatePostLikes/${id}/${userid}`
+                `https://quick-deal-demo.vercel.app/dashboard/updatePostLikes/${id}/${userid}`
             )
             .then((res) => {
                 if (res.data.status === "success") {
@@ -67,9 +66,8 @@ const ProductDetails = () => {
     };
 
     useEffect(() => {
-        setloading(true);
         axios
-            .get(`https://quickdealdemo-1.onrender.com/dashboard/post/${id}`)
+            .get(`https://quick-deal-demo.vercel.app/dashboard/post/${id}`)
             .then((res) => {
                 setitem(res.data.info);
             })
@@ -81,9 +79,8 @@ const ProductDetails = () => {
 
     const formattedDate = formatDate(item.date);
     const handleGetBuyerinfo = () => {
-        setloading(true);
         axios
-            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
+            .get("https://quick-deal-demo.vercel.app/auth/islogin")
             .then((res) => {
                 const buyer_id = res.data.id;
                 Navigate(`/chat/${buyer_id}/${item.userid}`);
@@ -91,11 +88,10 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log(err);
             });
-        setloading(false);
     };
     return (
         <>
-            {loading ? (
+            {loading || item.length == 0 ? (
                 <div
                     style={{
                         position: "fixed",
