@@ -171,7 +171,7 @@ const Home = () => {
                     />
                     <div className="main">
                         <div className="div-main formargin">
-                            {renderitems.map((card) => (
+                            {renderitems?.map((card) => (
                                 <Cardcomponent
                                     key={card._id}
                                     onClick={handleClick}
