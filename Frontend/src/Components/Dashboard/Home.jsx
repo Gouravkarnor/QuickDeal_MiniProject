@@ -17,6 +17,7 @@ const Home = () => {
     const [image, setimage] = useState("");
     const [userid, setuserid] = useState("");
     const [loading, setloading] = useState(true);
+    const [render, setrender] = useState(false);
     // -------------- checking if user login or not --------------------
 
     useEffect(() => {
@@ -37,9 +38,7 @@ const Home = () => {
             .catch((err) => {
                 console.log(err);
             })
-            .finally(() => {
-                setloading(false);
-            });
+            .finally(() => {});
     }, []);
 
     // ---------------------- geting posts from DB -------------------
@@ -57,17 +56,15 @@ const Home = () => {
             .catch((err) => {
                 console.log(err);
             })
-            .finally(() => {
-                setloading(false);
-            });
+            .finally(() => {});
     }, []);
     useEffect(() => {
-        setloading(true);
         const filteredItems = items?.filter(
             (item) => item.useremail !== useremail && !item.hasSold
         );
         setrenderitems(filteredItems);
         setloading(false);
+        setrender(true);
     }, [items]);
     const authdetail = { isauth, name, useremail, image, userid };
     // ------------------- handle search bar keyword change---------------
@@ -140,7 +137,7 @@ const Home = () => {
 
     return (
         <>
-            {loading ? (
+            {loading && !render ? (
                 <div
                     style={{
                         position: "fixed",
@@ -184,6 +181,7 @@ const Home = () => {
                                 />
                             ))}
                             {renderitems.length === 0 &&
+                                render &&
                                 Array.from({ length: 12 }).map((_, index) => (
                                     <Card
                                         key={index}
