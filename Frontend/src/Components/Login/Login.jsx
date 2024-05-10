@@ -17,7 +17,7 @@ function LoginSignup() {
     const [name, setname] = useState("");
     const [useremail, setuseremail] = useState("");
     const [image, setimage] = useState("");
-    const [loading, setloading] = useState(true);
+    const [loading, setloading] = useState(false);
     useEffect(() => {
         setloading(true);
         axios
@@ -39,7 +39,9 @@ function LoginSignup() {
                 console.log(err);
             })
             .finally(() => {
-                setloading(false);
+                setTimeout(() => {
+                    setloading(false);
+                }, 1000);
             });
     }, []);
 
@@ -90,7 +92,9 @@ function LoginSignup() {
             })
             .catch((err) => console.log(err))
             .finally(() => {
-                setloading(false);
+                setTimeout(() => {
+                    setloading(false);
+                }, 1000);
             });
     };
 

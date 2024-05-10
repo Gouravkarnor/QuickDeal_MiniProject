@@ -24,7 +24,7 @@ const ProductDetails = () => {
     const { id } = useParams();
     const { preview } = useParams();
     const [liked, setliked] = useState(false);
-    const [loading, setloading] = useState(false);
+    const [loading, setloading] = useState(true);
     const [item, setitem] = useState([]);
     const Navigate = useNavigate();
     axios.defaults.withCredentials = true;
