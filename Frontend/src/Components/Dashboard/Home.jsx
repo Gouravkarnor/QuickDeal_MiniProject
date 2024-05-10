@@ -136,7 +136,7 @@ const Home = () => {
 
     return (
         <>
-            {loading || !render ? (
+            {loading || !render || renderitems == null ? (
                 <div
                     style={{
                         position: "fixed",
@@ -179,7 +179,7 @@ const Home = () => {
                                     item={card}
                                 />
                             ))}
-                            {renderitems.length === 0 &&
+                            {renderitems?.length === 0 &&
                                 render &&
                                 Array.from({ length: 12 }).map((_, index) => (
                                     <Card
