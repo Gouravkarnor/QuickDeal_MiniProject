@@ -20,7 +20,6 @@ const Home = () => {
     // -------------- checking if user login or not --------------------
 
     useEffect(() => {
-        setloading(true);
         axios
             .get("https://quick-deal-demo.vercel.app/auth/islogin")
             .then((res) => {
@@ -47,7 +46,6 @@ const Home = () => {
     const [render, setrender] = useState(false);
 
     useEffect(() => {
-        setloading(true);
         axios
             .get(`https://quick-deal-demo.vercel.app/dashboard/getposts`)
             .then((res) => {
