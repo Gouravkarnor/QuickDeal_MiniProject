@@ -136,7 +136,7 @@ const Home = () => {
 
     return (
         <>
-            {loading || !render || renderitems == null ? (
+            {loading || !render ? (
                 <div
                     style={{
                         position: "fixed",
