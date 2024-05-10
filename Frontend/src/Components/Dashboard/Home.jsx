@@ -168,11 +168,11 @@ const Home = () => {
                 </div>
             ) : (
                 <>
-                    {/* <Navbar
+                    <Navbar
                         searchbar="true"
                         onSearchChange={handleSearchChange}
                         onCategoryFilterChange={handleCategoryFilterChange}
-                    /> */}
+                    />
                     <div className="main">
                         <div className="div-main formargin">
                             {renderitems.map((card) => (
