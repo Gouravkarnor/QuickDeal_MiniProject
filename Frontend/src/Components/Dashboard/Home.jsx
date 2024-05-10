@@ -20,8 +20,9 @@ const Home = () => {
     // -------------- checking if user login or not --------------------
 
     useEffect(() => {
+        setloading(true);
         axios
-            .get("https://quick-deal-demo.vercel.app/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -35,33 +36,38 @@ const Home = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setloading(false);
             });
-        // setloading(false);
     }, []);
 
     // ---------------------- geting posts from DB -------------------
 
     const [items, setitems] = useState([]);
     const [renderitems, setrenderitems] = useState([]);
-    const [render, setrender] = useState(false);
 
     useEffect(() => {
+        setloading(true);
         axios
-            .get(`https://quick-deal-demo.vercel.app/dashboard/getposts`)
+            .get(`https://quickdealdemo-1.onrender.com/dashboard/getposts`)
             .then((res) => {
                 setitems(res.data.result);
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setloading(false);
             });
     }, []);
     useEffect(() => {
+        setloading(true);
         const filteredItems = items?.filter(
             (item) => item.useremail !== useremail && !item.hasSold
         );
         setrenderitems(filteredItems);
         setloading(false);
-        setrender(true);
     }, [items]);
     const authdetail = { isauth, name, useremail, image, userid };
     // ------------------- handle search bar keyword change---------------
@@ -134,7 +140,7 @@ const Home = () => {
 
     return (
         <>
-            {loading || !render ? (
+            {loading ? (
                 <div
                     style={{
                         position: "fixed",
@@ -169,7 +175,7 @@ const Home = () => {
                     />
                     <div className="main">
                         <div className="div-main formargin">
-                            {renderitems?.map((card) => (
+                            {renderitems.map((card) => (
                                 <Cardcomponent
                                     key={card._id}
                                     onClick={handleClick}
@@ -177,8 +183,7 @@ const Home = () => {
                                     item={card}
                                 />
                             ))}
-                            {renderitems?.length === 0 &&
-                                render &&
+                            {renderitems.length === 0 &&
                                 Array.from({ length: 12 }).map((_, index) => (
                                     <Card
                                         key={index}
