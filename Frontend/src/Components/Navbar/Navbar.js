@@ -442,48 +442,52 @@ function Navbar({
                                 <NavLink
                                     to="/login"
                                     activeclassname="active_class">
-                                    <button className="login-sell-btn hide">
+                                    <button className="login-sell-btn">
                                         Login
                                     </button>
                                 </NavLink>
                             </div>
                         )}
                         {/* Adding the hamburger icon here for the smaller screen size */}
-                        <div className="hamburger1" onClick={toggleMobileView}>
+                        {isauth && (
                             <div
-                                className={`hamburger ${
-                                    mobileview ? "open" : ""
-                                }`}>
-                                {!mobileview ? (
-                                    <Tooltip title="Menu" arrow>
-                                        <IconButton>
-                                            <MenuIcon
-                                                style={{ fill: "white" }}
-                                                fontSize="large"
-                                            />
-                                        </IconButton>
-                                    </Tooltip>
-                                ) : (
-                                    <Tooltip title="Menu" arrow>
-                                        <IconButton>
-                                            <ClearIcon
-                                                style={{ fill: "white" }}
-                                                fontSize="large"
-                                            />
-                                        </IconButton>
-                                    </Tooltip>
+                                className="hamburger1"
+                                onClick={toggleMobileView}>
+                                <div
+                                    className={`hamburger ${
+                                        mobileview ? "open" : ""
+                                    }`}>
+                                    {!mobileview ? (
+                                        <Tooltip title="Menu" arrow>
+                                            <IconButton>
+                                                <MenuIcon
+                                                    style={{ fill: "white" }}
+                                                    fontSize="large"
+                                                />
+                                            </IconButton>
+                                        </Tooltip>
+                                    ) : (
+                                        <Tooltip title="Menu" arrow>
+                                            <IconButton>
+                                                <ClearIcon
+                                                    style={{ fill: "white" }}
+                                                    fontSize="large"
+                                                />
+                                            </IconButton>
+                                        </Tooltip>
+                                    )}
+                                </div>
+                                {!isauth && (
+                                    <NavLink
+                                        to="/login"
+                                        activeclassname="active_class">
+                                        <button className="login-sell-btn">
+                                            Login
+                                        </button>
+                                    </NavLink>
                                 )}
                             </div>
-                            {!isauth && (
-                                <NavLink
-                                    to="/login"
-                                    activeclassname="active_class">
-                                    <button className="login-sell-btn">
-                                        Login
-                                    </button>
-                                </NavLink>
-                            )}
-                        </div>
+                        )}
                     </div>
                 </div>
                 {searchbar && (
