@@ -140,7 +140,7 @@ const Home = () => {
 
     return (
         <>
-            {loading ? (
+            {loading || items.length === 0 ? (
                 <div
                     style={{
                         position: "fixed",
