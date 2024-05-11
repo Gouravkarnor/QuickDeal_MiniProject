@@ -50,6 +50,7 @@
 .category_checkboxes label {
     font-size: 1rem;
     cursor: pointer;
+    margin-right: 1rem;
 }
 .categoryscroll {
     /* style={{ overflowX: "auto", maxWidth: "1000px" }} */
@@ -133,6 +134,7 @@ input[type="checkbox"] {
     color: #1c78da; /* Color of the checkmark */
     font-size: 30px;
     font-weight: 550;
+    margin: 0;
 }
 /*All category box*/
 .dropdown-basic {
@@ -153,6 +155,7 @@ input[type="checkbox"] {
     position: relative;
     top: 3px;
     cursor: pointer;
+    margin: 0;
 }
 
 /* Define custom styles for the checked state */
