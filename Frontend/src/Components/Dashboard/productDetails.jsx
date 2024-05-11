@@ -93,7 +93,7 @@ const ProductDetails = () => {
     };
     return (
         <>
-            {loading ? (
+            {loading || item.length === 0 ? (
                 <div
                     style={{
                         position: "fixed",
