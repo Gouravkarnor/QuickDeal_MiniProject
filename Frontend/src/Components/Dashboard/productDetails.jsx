@@ -47,6 +47,7 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log(err);
             });
+        setloading(false);
     }, []);
     const handlelike = () => {
         setloading(true);
@@ -66,6 +67,7 @@ const ProductDetails = () => {
     };
 
     useEffect(() => {
+        setloading(true);
         axios
             .get(`https://quick-deal-demo.vercel.app/dashboard/post/${id}`)
             .then((res) => {
@@ -79,6 +81,7 @@ const ProductDetails = () => {
 
     const formattedDate = formatDate(item.date);
     const handleGetBuyerinfo = () => {
+        setloading(true);
         axios
             .get("https://quick-deal-demo.vercel.app/auth/islogin")
             .then((res) => {
@@ -88,10 +91,11 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log(err);
             });
+        setloading(false);
     };
     return (
         <>
-            {loading || item.length == 0 ? (
+            {loading || item.length === 0 ? (
                 <div
                     style={{
                         position: "fixed",
