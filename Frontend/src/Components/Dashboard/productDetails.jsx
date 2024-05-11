@@ -46,11 +46,12 @@ const ProductDetails = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setloading(false);
             });
-        setloading(false);
     }, []);
     const handlelike = () => {
-        setloading(true);
         axios
             .post(
                 `https://quick-deal-demo.vercel.app/dashboard/updatePostLikes/${id}/${userid}`
@@ -63,11 +64,9 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log("error in updating likes ", err.message);
             });
-        setloading(false);
     };
 
     useEffect(() => {
-        setloading(true);
         axios
             .get(`https://quick-deal-demo.vercel.app/dashboard/post/${id}`)
             .then((res) => {
@@ -76,7 +75,6 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log(err);
             });
-        setloading(false);
     }, [id, liked]);
 
     const formattedDate = formatDate(item?.date);
