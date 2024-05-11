@@ -32,8 +32,9 @@ const ProductDetails = () => {
     const [userid, setuserid] = useState("");
 
     useEffect(() => {
+        setloading(true);
         axios
-            .get("https://quick-deal-demo.vercel.app/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 if (res.data.status === "error") {
                     setauth(false);
@@ -46,11 +47,13 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log(err);
             });
+        setloading(false);
     }, []);
     const handlelike = () => {
+        setloading(true);
         axios
             .post(
-                `https://quick-deal-demo.vercel.app/dashboard/updatePostLikes/${id}/${userid}`
+                `https://quickdealdemo-1.onrender.com/dashboard/updatePostLikes/${id}/${userid}`
             )
             .then((res) => {
                 if (res.data.status === "success") {
@@ -60,23 +63,26 @@ const ProductDetails = () => {
             .catch((err) => {
                 console.log("error in updating likes ", err.message);
             });
+        setloading(false);
     };
 
     useEffect(() => {
+        setloading(true);
         axios
-            .get(`https://quick-deal-demo.vercel.app/dashboard/post/${id}`)
+            .get(`https://quickdealdemo-1.onrender.com/dashboard/post/${id}`)
             .then((res) => {
                 setitem(res.data.info);
             })
             .catch((err) => {
                 console.log(err);
             });
+        setloading(false);
     }, [id, liked]);
 
     const formattedDate = formatDate(item.date);
     const handleGetBuyerinfo = () => {
         axios
-            .get("https://quick-deal-demo.vercel.app/auth/islogin")
+            .get("https://quickdealdemo-1.onrender.com/auth/islogin")
             .then((res) => {
                 const buyer_id = res.data.id;
                 Navigate(`/chat/${buyer_id}/${item.userid}`);
