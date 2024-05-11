@@ -79,14 +79,14 @@ const ProductDetails = () => {
         setloading(false);
     }, [id, liked]);
 
-    const formattedDate = formatDate(item.date);
+    const formattedDate = formatDate(item?.date);
     const handleGetBuyerinfo = () => {
         setloading(true);
         axios
             .get("https://quick-deal-demo.vercel.app/auth/islogin")
             .then((res) => {
                 const buyer_id = res.data.id;
-                Navigate(`/chat/${buyer_id}/${item.userid}`);
+                Navigate(`/chat/${buyer_id}/${item?.userid}`);
             })
             .catch((err) => {
                 console.log(err);
@@ -95,7 +95,7 @@ const ProductDetails = () => {
     };
     return (
         <>
-            {loading || item.length === 0 ? (
+            {loading || item?.length === 0 ? (
                 <div
                     style={{
                         position: "fixed",
@@ -129,18 +129,18 @@ const ProductDetails = () => {
                             <div className="image">
                                 <style>
                                     {`
-                            .carousel-inner .carousel-item {
+                            .carousel-inner .carousel-item? {
                                 transition: transform 0.6s ease; /* Adjust transition duration */
                             }
                             `}
                                 </style>
                                 <Carousel>
-                                    {item.imageurl &&
-                                        item.imageurl.map((images, index) => (
+                                    {item?.imageurl &&
+                                        item?.imageurl.map((images, index) => (
                                             <Carousel.Item key={index}>
                                                 <img
                                                     src={images}
-                                                    alt="item.productname"
+                                                    alt="item?.productname"
                                                     style={{
                                                         width: "100%",
                                                         height: "500px",
@@ -155,13 +155,13 @@ const ProductDetails = () => {
                             <br />
                             <div className="description">
                                 <b>Description</b> <br />
-                                {item.description}
+                                {item?.description}
                             </div>
                         </div>
                         <div className="rightdiv">
                             <div className="productdetails">
                                 <div className="priceandheart">
-                                    <h1> ₹ {item.price} /-</h1>
+                                    <h1> ₹ {item?.price} /-</h1>
                                     {!preview && (
                                         <div className="favoriteIcon">
                                             {item?.likedby?.includes(userid) ? (
@@ -188,15 +188,15 @@ const ProductDetails = () => {
                                                 </Tooltip>
                                             )}
                                             <span className="likescount">
-                                                {item.likedby?.length}
+                                                {item?.likedby?.length}
                                             </span>
                                         </div>
                                     )}
                                 </div>
                                 <hr />
-                                <h4>{item.productname}</h4>
-                                <p>👉 {item.adtitle}</p>
-                                <p>👉 {item.description}</p>
+                                <h4>{item?.productname}</h4>
+                                <p>👉 {item?.adtitle}</p>
+                                <p>👉 {item?.description}</p>
                                 <p>📅 {formattedDate}</p>
                             </div>
                             <div className="sellerinfo">
@@ -207,14 +207,14 @@ const ProductDetails = () => {
                                         style={{ fill: "#0072ea" }}
                                     />
                                     &nbsp;
-                                    {item.username}
+                                    {item?.username}
                                 </p>
                                 <p>
                                     <EmailIcon style={{ fill: "orangered" }} />
                                     &nbsp;
-                                    {item.useremail}
+                                    {item?.useremail}
                                 </p>
-                                {/* <p>{item.userid}</p> */}
+                                {/* <p>{item?.userid}</p> */}
                                 {!preview && (
                                     <button
                                         className="chatbutton"
@@ -226,7 +226,7 @@ const ProductDetails = () => {
                             <div className="location">
                                 <p>
                                     <LocationOnIcon style={{ fill: "red" }} />
-                                    &nbsp; Location: {item.location}
+                                    &nbsp; Location: {item?.location}
                                 </p>
                             </div>
                         </div>
