@@ -2,6 +2,8 @@
 
 QuickDeal is a dynamic online marketplace designed specifically for college communities, providing a platform for students and faculty to buy, sell, and trade items within their campus network. Built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, QuickDeal offers a range of features to facilitate smooth transactions and interactions within the college community.
 
+## Live Demo
+[Click Here](https://quick-deal-demo.vercel.app/)
 ## Key Features
 
 1. **Real-Time Chat**: Enable users to initiate and participate in real-time chat conversations to negotiate deals or discuss listings with other users.
