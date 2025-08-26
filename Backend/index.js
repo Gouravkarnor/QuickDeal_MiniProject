@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 app.use(
   cors({
-    origin: ["https://quickdealdemonstration.vercel.app/"],
+    origin: ["https://quickdealdemonstration.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true,
   })
@@ -20,7 +20,7 @@ app.use(
 
 const io = new Server(server, {
   cors: {
-    origin: "https://quickdealdemonstration.vercel.app/",
+    origin: "https://quickdealdemonstration.vercel.app",
     methods: ["POST", "GET"],
   },
 });
