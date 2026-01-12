@@ -18,6 +18,7 @@ function cropText(text, maxLength) {
 const Cardcomponent = ({ onClick, usermail, item }) => {
     return (
         <>
+          
             <div className="cards" onClick={() => onClick(item._id)}>
                 <img
                     src={item.imageurl[0]}

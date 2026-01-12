@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import "./Home";
 import { Oval } from "react-loader-spinner";
 import Footer from "../Footer/Footer";
+import { ToastContainer, toast } from "react-toastify";
+
 const Home = () => {
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
@@ -135,11 +137,20 @@ const Home = () => {
 
     // --------- handles click on cards------------
     const handleClick = (id) => {
-        if (isauth) navigate(`/product/${id}`);
+        if (isauth) {
+            navigate(`/product/${id}`);
+        }else{
+             toast.error("Please Login to see details", {
+                        autoClose: 3000,
+                        position: "top-right",
+                    });
+        }
+        
     };
 
     return (
         <>
+          <ToastContainer autoClose="5000" theme="dark" />
             {loading || items.length === 0 ? (
                 <div
                     style={{
